@@ -1,0 +1,30 @@
+details {
+  pointer-events: all;
+}
+details[open] {
+  aspect-ratio: 1.77;
+  width: 100%;
+}
+summary {
+  outline: none;
+  display: flex;
+  gap: 8px;
+}
+summary:hover ::slotted(span[slot='title']) {
+  text-decoration: underline;
+}
+slot[name='title'] {
+  cursor: pointer;
+}
+slot[name='title']:hover {
+  text-decoration: underline;
+}
+slot[name='icon'] {
+  cursor: pointer;
+}
+details ::slotted(span[slot='icon']) {
+  transition: transform 0.5s ease-in-out;
+}
+details[open] ::slotted(span[slot='icon']) {
+  transform: rotate(180deg);
+}

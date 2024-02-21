@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>youtube-vid</title>
+    <meta name="description" content="HTML custom element for a youtube video." />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=2.0"
+    />
+    <link
+      rel="preload"
+      href="/font/Roboto-Regular.ttf"
+      as="font"
+      crossorigin="anonymous"
+    />
+    <link rel="preload" href="/font/Roboto-Bold.ttf" as="font" crossorigin="anonymous" />
+    <link rel="icon" type="image/svg+xml" href="/src/favicon.svg" />
+    <script
+      type="module"
+      src="dist/youTube/defined.js?base=http://localhost:4173/dist/"
+    ></script>
+    <script
+      type="module"
+      src="dist/youtubeVid/defined.js?base=http://localhost:4173/dist/"
+    ></script>
+  </head>
+  <body>
+    <main>
+      <youtube-vid id="qQIO3pBFfXI">
+        <span slot="icon">🎹</span>
+        <span slot="title">In Too Deep &mdash; Genesis</span>
+      </youtube-vid>
+    </main>
+  </body>
+</html>

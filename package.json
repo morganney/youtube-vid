@@ -1,0 +1,48 @@
+{
+  "name": "youtube-vid",
+  "version": "1.0.0-alpha.0",
+  "description": "HTML Custom Element for YouTube videos with a title, icon and an accordion-like UX.",
+  "main": "dist",
+  "type": "module",
+  "exports": {
+    "./*": {
+      "import": "./dist/*.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "engines": {
+    "node": ">=14.18.0"
+  },
+  "engineStrict": true,
+  "scripts": {
+    "prettier": "prettier -w .",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview --outDir .",
+    "prepack": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "youtube",
+    "custom element",
+    "accordion",
+    "details",
+    "summary"
+  ],
+  "author": "Morgan Ney <morganney@gmail.com>",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "prettier": "^3.2.5",
+    "typescript": "^5.3.3",
+    "vite": "^5.1.3"
+  },
+  "prettier": {
+    "arrowParens": "avoid",
+    "printWidth": 90,
+    "semi": false,
+    "singleQuote": true
+  }
+}
