@@ -4,7 +4,8 @@
     "module": "NodeNext",
     "strict": true,
     "outDir": "dist",
-    "declaration": true
+    "declaration": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"]
   },
   "include": ["src"]
 }

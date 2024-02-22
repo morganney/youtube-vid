@@ -26,12 +26,18 @@ const initYoutubeVid = async () => {
       shadow.appendChild(template.content.cloneNode(true))
     }
 
+    static get observedAttributes() {
+      return ['width']
+    }
+
     connectedCallback() {
       const shadowRoot = this.shadowRoot
 
       if (shadowRoot) {
         const details = shadowRoot.querySelector('details') as HTMLDetailsElement
+        const attrWidth = this.getAttribute('width')
 
+        details.style.setProperty('width', attrWidth ?? '100%')
         details.addEventListener(
           'toggle',
           evt => {
@@ -52,6 +58,16 @@ const initYoutubeVid = async () => {
           },
           false,
         )
+      }
+    }
+
+    attributeChangedCallback(name: string, oldValue: string, newValue: string) {
+      switch (name) {
+        case 'width':
+          this.shadowRoot
+            ?.querySelector('details')
+            ?.style.setProperty('width', newValue || oldValue || '100%')
+          break
       }
     }
   }
