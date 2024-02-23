@@ -1,11 +1,8 @@
-import { getBaseUrl } from '../util.js'
-
 const define = async () => {
   const name = 'you-tube'
-  const base = getBaseUrl(import.meta.url)
 
   if (!customElements.get(name)) {
-    const { YouTube } = await import(`./element.js?base=${base}`)
+    const { YouTube } = await import('./element.js')
 
     customElements.define(name, YouTube)
   }

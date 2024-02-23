@@ -1,11 +1,9 @@
-import { getBaseUrl } from '../util.js'
-
 const initYouTube = async () => {
+  const url = new URL(import.meta.url)
+  const base = `${url.origin}${url.pathname.split('youTube/element.js')[0] ?? '/'}`
   const [html, css] = await Promise.all([
-    fetch(`${getBaseUrl(import.meta.url)}youTube/template.html`).then(resp =>
-      resp.text(),
-    ),
-    fetch(`${getBaseUrl(import.meta.url)}youTube/styles.css`).then(resp => resp.text()),
+    fetch(`${base}youTube/template.html`).then(resp => resp.text()),
+    fetch(`${base}youTube/styles.css`).then(resp => resp.text()),
   ])
   const parser = new DOMParser()
   const template = parser

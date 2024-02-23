@@ -1,15 +1,12 @@
-import { getBaseUrl } from '../util.js'
-
 const define = async () => {
   const name = 'youtube-vid'
-  const base = getBaseUrl(import.meta.url)
 
   if (!customElements.get('you-tube')) {
-    await import(`../youTube/defined.js?base=${base}`)
+    await import('../youTube/defined.js')
   }
 
   if (!customElements.get(name)) {
-    const { YoutubeVid } = await import(`./element.js?base=${base}`)
+    const { YoutubeVid } = await import('./element.js')
 
     customElements.define(name, YoutubeVid)
   }
