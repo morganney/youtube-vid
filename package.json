@@ -1,6 +1,6 @@
 {
   "name": "youtube-vid",
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.0-alpha.1",
   "description": "HTML Custom Element for YouTube videos with a title, icon and an accordion-like UX.",
   "main": "dist",
   "type": "module",
@@ -16,6 +16,7 @@
   "engineStrict": true,
   "scripts": {
     "prettier": "prettier -w .",
+    "lint": "eslint . src --ext .ts,.tsx --max-warnings 0",
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview --outDir .",
@@ -24,6 +25,7 @@
   },
   "keywords": [
     "youtube",
+    "html",
     "custom element",
     "accordion",
     "details",
@@ -35,6 +37,12 @@
     "dist"
   ],
   "devDependencies": {
+    "@types/clean-css": "^4.2.11",
+    "@typescript-eslint/eslint-plugin": "^7.0.2",
+    "@typescript-eslint/parser": "^7.0.2",
+    "clean-css": "^5.3.3",
+    "eslint": "^8.56.0",
+    "html-minifier-terser": "^7.2.0",
     "prettier": "^3.2.5",
     "typescript": "^5.3.3",
     "vite": "^5.1.3"

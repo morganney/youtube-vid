@@ -35,6 +35,6 @@ Note, if the CDN strips URL query parameters [like unpkg](https://github.com/mja
 </html>
 ```
 
-TODO:
+## NPM Example
 
-- replace the `public/` dir with a copy util that also transforms the css/html via minification.
+@TODO

@@ -14,22 +14,44 @@
       as="font"
       crossorigin="anonymous"
     />
-    <link rel="preload" href="/font/Roboto-Bold.ttf" as="font" crossorigin="anonymous" />
-    <link rel="icon" type="image/svg+xml" href="/src/favicon.svg" />
-    <script
-      type="module"
-      src="dist/youTube/defined.js?base=http://localhost:4173/dist/"
-    ></script>
-    <script
-      type="module"
-      src="dist/youtubeVid/defined.js?base=http://localhost:4173/dist/"
-    ></script>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+      html * {
+        box-sizing: border-box;
+      }
+      main {
+        display: grid;
+        gap: 16px;
+        padding: 16px;
+      }
+      youtube-vid {
+        width: 50%;
+      }
+    </style>
+    <script type="module">
+      const base = '/dist/'
+
+      await import(`${base}youTube/defined.js?base=${base}`)
+      await import(`${base}youtubeVid/defined.js?base=${base}`)
+    </script>
   </head>
   <body>
     <main>
-      <youtube-vid id="qQIO3pBFfXI">
+      <youtube-vid id="qQIO3pBFfXI" width="70%">
         <span slot="icon">🎹</span>
         <span slot="title">In Too Deep &mdash; Genesis</span>
+      </youtube-vid>
+      <youtube-vid id="4aeETEoNfOg">
+        <span slot="icon">🎸</span>
+        <span slot="title">1979 &mdash; The Smashing Pumpkins</span>
+      </youtube-vid>
+      <youtube-vid id="4aeETEoNfOg">
+        <span slot="title">1979 &mdash; The Smashing Pumpkins</span>
       </youtube-vid>
     </main>
   </body>
