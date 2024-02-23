@@ -1,6 +1,6 @@
 {
   "name": "youtube-vid",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0-alpha.2",
   "description": "HTML Custom Element for YouTube videos with a title, icon and an accordion-like UX.",
   "main": "dist",
   "type": "module",
@@ -33,6 +33,13 @@
   ],
   "author": "Morgan Ney <morganney@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/morganney/youtube-vid.git"
+  },
+  "bugs": {
+    "url": "https://github.com/morganney/youtube-vid/issues"
+  },
   "files": [
     "dist"
   ],
