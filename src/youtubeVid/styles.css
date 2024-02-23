@@ -18,7 +18,7 @@ slot[name='title']:hover {
 }
 slot[name='icon'] {
   cursor: pointer;
-  min-width: 16px;
+  min-width: 12px;
   display: flex;
   transition: transform 0.25s ease-in-out;
 }
