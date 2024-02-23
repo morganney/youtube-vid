@@ -1,9 +1,12 @@
 {
   "name": "youtube-vid",
-  "version": "1.0.0-alpha.3",
+  "version": "1.0.0-alpha.4",
   "description": "HTML Custom Element for YouTube videos with a title, icon and an accordion-like UX.",
   "main": "dist/youtubeVid/element.js",
   "type": "module",
+  "bin": {
+    "ytvcp": "./dist/cli.js"
+  },
   "exports": {
     ".": {
       "import": "./dist/youtubeVid/element.js"
@@ -23,7 +26,7 @@
     "./package.json": "./package.json"
   },
   "engines": {
-    "node": ">=14.18.0"
+    "node": ">=16.17.0"
   },
   "engineStrict": true,
   "scripts": {
@@ -63,6 +66,7 @@
     "eslint": "^8.56.0",
     "html-minifier-terser": "^7.2.0",
     "prettier": "^3.2.5",
+    "tsx": "^4.7.1",
     "typescript": "^5.3.3",
     "vite": "^5.1.3"
   },

@@ -1,6 +1,7 @@
+import { getBaseUrl } from '../util.js'
+
 const initYoutubeVid = async () => {
-  const url = new URL(import.meta.url)
-  const base = `${url.origin}${url.pathname.split('youtubeVid/element.js')[0] ?? '/'}`
+  const base = getBaseUrl(import.meta.url, 'youtubeVid')
   const [html, css] = await Promise.all([
     fetch(`${base}youtubeVid/template.html`).then(resp => resp.text()),
     fetch(`${base}youtubeVid/styles.css`).then(resp => resp.text()),
