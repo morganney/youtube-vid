@@ -1,6 +1,6 @@
 {
   "name": "youtube-vid",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0-alpha.2",
   "description": "HTML Custom Element for YouTube videos with a title, icon and an accordion-like UX.",
   "main": "dist",
   "type": "module",

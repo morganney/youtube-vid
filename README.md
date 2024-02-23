@@ -4,7 +4,7 @@ HTML custom element for rendering a YouTube video with a heading, icon and accor
 
 ## CDN Example
 
-Note, if the CDN strips URL query parameters [like unpkg](https://github.com/mjackson/unpkg/issues/348), then it can't be used. Otherwise, the custom element's HTML and CSS assets will be loaded from a path relative to the current hostname.
+Note, if the CDN strips URL query parameters [like unpkg](https://github.com/mjackson/unpkg/issues/348), then it can't be used. In those cases, the `base` query param can not be defined, and the custom element's HTML and CSS assets will be loaded from a path relative to the current document's hostname instead.
 
 ```html
 <!doctype html>
@@ -20,13 +20,12 @@ Note, if the CDN strips URL query parameters [like unpkg](https://github.com/mja
     <script type="module">
       const base = 'https://cdn.jsdelivr.net/npm/youtube-vid/dist/'
 
-      await import(`${base}youTube/defined.js?base=${base}`)
       await import(`${base}youtubeVid/defined.js?base=${base}`)
     </script>
   </head>
   <body>
     <main>
-      <youtube-vid id="qQIO3pBFfXI">
+      <youtube-vid id="qQIO3pBFfXI" width="50%">
         <span slot="icon">🎹</span>
         <span slot="title">In Too Deep &mdash; Genesis</span>
       </youtube-vid>
