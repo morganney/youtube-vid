@@ -25,9 +25,8 @@ slot[name='title']:hover {
 }
 slot[name='icon'] {
   cursor: pointer;
-  min-width: 14px;
   display: flex;
-  transition: transform 0.25s ease-in-out;
+  transition: transform 0.35s ease-in-out;
 }
 details[open] slot[name='icon'] {
   transform: rotate(90deg);
