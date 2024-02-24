@@ -8,11 +8,11 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=2.0"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      rel="preload"
-      href="/font/Roboto-Regular.ttf"
-      as="font"
-      crossorigin="anonymous"
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
     />
     <style>
       html,
@@ -31,9 +31,11 @@
       }
       youtube-vid {
         width: 50%;
+        font-family: Roboto;
       }
     </style>
-    <script type="module" src="./dist/youtubeVid/defined.js"></script>
+    <link rel="stylesheet" href="./ytvStyles.css" />
+    <script type="module" src="./youtubeVid/defined.js"></script>
   </head>
   <body>
     <main>

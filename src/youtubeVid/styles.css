@@ -3,12 +3,19 @@ details {
 }
 summary {
   outline: none;
+  list-style: none;
   display: flex;
   align-items: center;
   gap: 12px;
 }
 summary:hover ::slotted(span[slot='title']) {
   text-decoration: underline;
+}
+details > summary::marker {
+  display: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
 }
 slot[name='title'] {
   cursor: pointer;
@@ -18,7 +25,7 @@ slot[name='title']:hover {
 }
 slot[name='icon'] {
   cursor: pointer;
-  min-width: 12px;
+  min-width: 14px;
   display: flex;
   transition: transform 0.25s ease-in-out;
 }
