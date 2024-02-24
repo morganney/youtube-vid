@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>youtube-vid CDN Demo</title>
+    <meta name="description" content="HTML custom element for a youtube video." />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=2.0"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/youtube-vid/dist/ytvStyles.css" />
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+      html * {
+        box-sizing: border-box;
+      }
+      main {
+        display: grid;
+        gap: 16px;
+        padding: 16px;
+      }
+      youtube-vid {
+        font-family: Roboto;
+      }
+    </style>
+    <script
+      type="module"
+      src="https://unpkg.com/youtube-vid/dist/youtubeVid/defined.js"
+    ></script>
+  </head>
+  <body>
+    <main>
+      <youtube-vid id="qQIO3pBFfXI">
+        <span slot="icon">🎹</span>
+        <span slot="title">In Too Deep &mdash; Genesis</span>
+      </youtube-vid>
+      <youtube-vid id="4aeETEoNfOg">
+        <span slot="icon">🎸</span>
+        <span slot="title">1979 &mdash; The Smashing Pumpkins</span>
+      </youtube-vid>
+      <youtube-vid id="Adw772km7PQ">
+        <span slot="icon">🎵</span>
+        <span slot="title">Back In The High Life Again &mdash; Steve Winwood</span>
+      </youtube-vid>
+      <youtube-vid id="-oqAU5VxFWs">
+        <span slot="icon">🎤</span>
+        <span slot="title">Mr. Jones &mdash; Counting Crows</span>
+      </youtube-vid>
+      <youtube-vid id="EqWRaAF6_WY">
+        <span slot="title">My Hero &mdash; Foo Fighters</span>
+      </youtube-vid>
+    </main>
+  </body>
+</html>
