@@ -34,7 +34,9 @@
   "engineStrict": true,
   "scripts": {
     "prettier": "prettier -w .",
-    "lint": "eslint . src --ext .ts,.tsx --max-warnings 0",
+    "lint:css": "stylelint src/**/*.css",
+    "lint:js": "eslint . src --ext .ts,.tsx --max-warnings 0",
+    "lint": "npm run lint:js && npm run lint:css",
     "watch": "tsx watch.ts",
     "dev": "vite",
     "build": "tsc && vite build",
@@ -72,6 +74,8 @@
     "eslint": "^8.56.0",
     "html-minifier-terser": "^7.2.0",
     "prettier": "^3.2.5",
+    "stylelint": "^16.2.1",
+    "stylelint-config-standard": "^36.0.0",
     "tsx": "^4.7.1",
     "typescript": "^5.3.3",
     "vite": "^5.1.3"
