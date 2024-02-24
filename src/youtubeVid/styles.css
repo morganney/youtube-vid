@@ -1,6 +1,7 @@
 details {
   pointer-events: all;
 }
+
 summary {
   outline: none;
   list-style: none;
@@ -8,27 +9,33 @@ summary {
   align-items: center;
   gap: 12px;
 }
+
 summary:hover ::slotted(span[slot='title']) {
   text-decoration: underline;
 }
+
 details > summary::marker {
   display: none;
 }
+
 details > summary::-webkit-details-marker {
   display: none;
 }
+
 slot[name='title'] {
   cursor: pointer;
 }
+
 slot[name='title']:hover {
   text-decoration: underline;
 }
+
 slot[name='icon'] {
   cursor: pointer;
-  min-width: 14px;
   display: flex;
-  transition: transform 0.25s ease-in-out;
+  transition: transform 0.35s ease-in-out;
 }
+
 details[open] slot[name='icon'] {
   transform: rotate(90deg);
 }

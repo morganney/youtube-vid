@@ -1,11 +1,12 @@
 :host {
   display: flex;
   background: black;
-  padding: 16px 16px;
+  padding: 16px;
   border-radius: 16px;
-  margin: 16px 0 0 0;
+  margin: 16px 0 0;
   aspect-ratio: 16 / 9;
 }
+
 :host iframe {
   padding: 0;
   margin: 0;
