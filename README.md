@@ -1,8 +1,12 @@
-# youtube-vid
+# [`<youtube-vid>`](https://www.npmjs.com/package/youtube-vid)
 
-HTML custom element for rendering a YouTube video with a heading, icon and accordion behavior via the native `<detail>` element.
+[![NPM version](https://img.shields.io/npm/v/youtube-vid.svg)](https://www.npmjs.com/package/youtube-vid)
+
+[HTML custom element](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements) for rendering a YouTube video with a heading, icon and accordion behavior via the native [`<details>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details) element.
 
 ## CDN Example
+
+It's simple to get up and started from a CDN. Just drop the `<script>` element in your page's HTML file and you're all set.
 
 ```html
 <!doctype html>
@@ -17,7 +21,7 @@ HTML custom element for rendering a YouTube video with a heading, icon and accor
     />
     <script
       type="module"
-      src="https://cdn.jsdelivr.net/npm/youtube-vid/dist/youtubeVid/defined.js"
+      src="https://unpkg.com/youtube-vid/dist/youtubeVid/defined.js"
     ></script>
   </head>
   <body>
@@ -33,4 +37,57 @@ HTML custom element for rendering a YouTube video with a heading, icon and accor
 
 ## NPM Example
 
-@TODO
+First install the package.
+
+```
+npm install youtube-vid
+```
+
+Now create a page that loads one of the packages exports, ideally the `defined` subpath to register the custom element with the browser. For example, in Next.js the page might look like:
+
+```js
+'use client'
+
+import { useEffect } from 'react'
+
+export default function Page() {
+  useEffect(() => {
+    const loadYtv = async () => {
+      await import('youtube-vid/defined')
+    }
+
+    loadYtv()
+  }, [])
+
+  return (
+    <youtube-vid id="abc123">
+      <span slot="icon">🎵</span>
+      <span slot="title">Video Title</span>
+    </youtub-vid>
+  )
+}
+```
+
+Finally, create an npm script to copy the static html and css assets to your web server's root directory. `youtube-vid` includes a bin script called `ytvcp` to help with this.
+
+For example, with Next.js you can copy the static assets to the `public` directory and they will be served from the web root as expected by the elements that load them.
+
+```json
+"scripts": {
+  "prebuild": "ytvcp --webroot ./public"
+}
+```
+
+So if your page using `youtube-vid` is hosted at https://my.nextjs.app/page the static html and css for the elements will be served at a path relative to '/'.
+
+## Attributes
+
+- `id` the id of the YouTube video to load.
+- `width` the css width of the element, defaults to `100%`.
+
+```html
+<youtube-vid id="abc123" width="300px">
+  <span slot="icon">📺</span>
+  <span slot="title">Video Title</span>
+</youtube-vid>
+```

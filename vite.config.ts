@@ -7,7 +7,22 @@ import CleanCss from 'clean-css'
 
 const out = resolve('dist')
 const cleanCss = new CleanCss()
+const getMinifiedStatic = async (contents: string, name: string) => {
+  if (/\.css$/.test(name)) {
+    return cleanCss.minify(contents).styles
+  }
 
+  if (/\.html$/.test(name)) {
+    const html = await minify(contents, {
+      collapseWhitespace: true,
+      removeComments: true,
+    })
+
+    return html
+  }
+
+  return contents
+}
 export default defineConfig({
   build: {
     outDir: 'dist',
@@ -34,22 +49,23 @@ export default defineConfig({
           const dirents = await readdir(resolve('src'), { withFileTypes: true })
 
           for (const dirent of dirents) {
+            if (dirent.isFile() && /(\.css|\.html)$/.test(dirent.name)) {
+              let contents = await readFile(join(dirent.path, dirent.name), {
+                encoding: 'utf-8',
+              })
+
+              contents = await getMinifiedStatic(contents, dirent.name)
+
+              await writeFile(join(out, dirent.name), contents)
+            }
+
             if (dirent.isDirectory()) {
               for (const file of ['template.html', 'styles.css']) {
                 let contents = await readFile(join(dirent.path, dirent.name, file), {
                   encoding: 'utf-8',
                 })
 
-                if (/\.css$/.test(file)) {
-                  contents = cleanCss.minify(contents).styles
-                }
-
-                if (/\.html$/.test(file)) {
-                  contents = await minify(contents, {
-                    collapseWhitespace: true,
-                    removeComments: true,
-                  })
-                }
+                contents = await getMinifiedStatic(contents, file)
 
                 await writeFile(join(out, dirent.name, file), contents)
               }
