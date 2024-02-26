@@ -1,3 +1,4 @@
+import { env } from 'node:process'
 import { resolve, join } from 'node:path'
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 
@@ -33,8 +34,8 @@ export default defineConfig({
     },
     rollupOptions: {
       input: {
-        'youTube/element.min': 'src/youTube/element.ts',
-        'youtubeVid/element.min': 'src/youtubeVid/element.ts',
+        'youTube/element': 'src/youTube/element.ts',
+        'youtubeVid/element': 'src/youtubeVid/element.ts',
       },
     },
     minify: 'esbuild',
@@ -42,9 +43,12 @@ export default defineConfig({
   },
   plugins: [
     {
-      name: 'my-copy',
+      name: 'ytv-copy',
       writeBundle: {
         order: 'post',
+        /**
+         * Copy statics over for supporting lazy loading alternative. (TODO)
+         */
         handler: async () => {
           const dirents = await readdir(resolve('src'), { withFileTypes: true })
 
@@ -69,6 +73,24 @@ export default defineConfig({
 
                 await writeFile(join(out, dirent.name, file), contents)
               }
+            }
+
+            if (env.YTV_DEPLOY) {
+              const cdnHost = 'unpkg.com'
+              let index = await readFile(resolve('index.html'), { encoding: 'utf-8' })
+              const cdn = index
+                .replace(
+                  /(link|script)(.+\s)(href|src)="(\/src\/)/g,
+                  `$1$2$3="https://${cdnHost}/youtube-vid/dist/`,
+                )
+                .replace('defined.ts', 'defined.js')
+
+              index = index
+                .replace(/(link|script)(.+\s)(href|src)="(\/src\/)/g, `$1$2$3="./`)
+                .replace('defined.ts', 'defined.js')
+
+              await writeFile(join(out, 'index.html'), index)
+              await writeFile(join(out, 'cdn.html'), cdn)
             }
           }
         },
