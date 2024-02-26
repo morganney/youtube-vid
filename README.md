@@ -19,6 +19,7 @@ It's simple to get up and started from a CDN. Just drop the `<script>` element i
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=2.0"
     />
+    <link rel="stylesheet" href="https://unpkg.com/youtube-vid/dist/ytvStyles.css" />
     <script
       type="module"
       src="https://unpkg.com/youtube-vid/dist/youtubeVid/defined.js"
@@ -35,7 +36,7 @@ It's simple to get up and started from a CDN. Just drop the `<script>` element i
 </html>
 ```
 
-## NPM Example
+## Next.js Example
 
 First install the package.
 
@@ -43,12 +44,13 @@ First install the package.
 npm install youtube-vid
 ```
 
-Now create a page that loads one of the packages exports, ideally the `defined` subpath to register the custom element with the browser. For example, in Next.js the page might look like:
+Now create a page that loads one of the packages exports, ideally the `defined` subpath to register the custom element with the browser. For example, the page might look like:
 
 ```js
 'use client'
 
 import { useEffect } from 'react'
+import 'youtube-vid/styles'
 
 export default function Page() {
   useEffect(() => {
@@ -68,19 +70,9 @@ export default function Page() {
 }
 ```
 
-Finally, create an npm script to copy the static html and css assets to your web server's root directory. `youtube-vid` includes a bin script called `ytvcp` to help with this.
-
-For example, with Next.js you can copy the static assets to the `public` directory and they will be served from the web root as expected by the elements that load them.
-
-```json
-"scripts": {
-  "prebuild": "ytvcp --webroot ./public"
-}
-```
-
-So if your page using `youtube-vid` is hosted at https://my.nextjs.app/page the static html and css for the elements will be served at a path relative to '/'.
-
 ## Attributes
+
+You can pass a couple of attributes. The `id` is required.
 
 - `id` the id of the YouTube video to load.
 - `width` the css width of the element, defaults to `100%`.

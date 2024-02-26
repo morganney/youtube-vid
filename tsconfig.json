@@ -5,7 +5,8 @@
     "strict": true,
     "outDir": "dist",
     "declaration": true,
-    "lib": ["DOM", "DOM.Iterable", "ESNext"]
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "types": ["vite/client", "node"]
   },
   "include": ["src"]
 }

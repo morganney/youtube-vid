@@ -1,6 +1,6 @@
 {
   "name": "youtube-vid",
-  "version": "1.0.0-alpha.6",
+  "version": "1.0.0-alpha.7",
   "description": "HTML Custom Element for YouTube videos with a title, icon and an accordion-like UX.",
   "main": "dist/youtubeVid/element.js",
   "type": "module",
@@ -40,7 +40,7 @@
     "watch": "tsx watch.ts",
     "dev": "vite",
     "build": "tsc && vite build",
-    "build:deploy": "npm run build && cp index.html cdn.html dist",
+    "build:deploy": "YTV_DEPLOY=true npm run build",
     "preview": "vite preview",
     "prepack": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -67,6 +67,7 @@
   ],
   "devDependencies": {
     "@types/clean-css": "^4.2.11",
+    "@types/node": "^20.11.20",
     "@typescript-eslint/eslint-plugin": "^7.0.2",
     "@typescript-eslint/parser": "^7.0.2",
     "browser-sync": "^3.0.2",

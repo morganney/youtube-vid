@@ -1,11 +1,7 @@
-import { getBaseUrl } from '../util.js'
+import html from './template.html?raw'
+import css from './styles.css?raw'
 
 const initYoutubeVid = async () => {
-  const base = getBaseUrl(import.meta.url, 'youtubeVid')
-  const [html, css] = await Promise.all([
-    fetch(`${base}youtubeVid/template.html`).then(resp => resp.text()),
-    fetch(`${base}youtubeVid/styles.css`).then(resp => resp.text()),
-  ])
   const parser = new DOMParser()
   const template = parser
     .parseFromString(html, 'text/html')

@@ -2,4 +2,11 @@ youtube-vid {
   display: flex;
   align-items: center;
   gap: 12px;
+  transition: opacity 0.5s ease-in;
+}
+youtube-vid:not(:defined) {
+  opacity: 0.5;
+}
+youtube-vid:defined {
+  opacity: 1;
 }
