@@ -25,6 +25,13 @@ const getMinifiedStatic = async (contents: string, name: string) => {
   return contents
 }
 export default defineConfig({
+  test: {
+    environment: 'jsdom',
+    coverage: {
+      provider: 'v8',
+      include: ['src/you*'],
+    },
+  },
   build: {
     outDir: 'dist',
     target: 'esnext',

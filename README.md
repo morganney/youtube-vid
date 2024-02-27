@@ -1,5 +1,7 @@
 # [`<youtube-vid>`](https://www.npmjs.com/package/youtube-vid)
 
+![CI](https://github.com/morganney/youtube-vid/actions/workflows/ci.yml/badge.svg)
+[![codecov](https://codecov.io/gh/morganney/youtube-vid/graph/badge.svg?token=8CXKFERK5T)](https://codecov.io/gh/morganney/youtube-vid)
 [![NPM version](https://img.shields.io/npm/v/youtube-vid.svg)](https://www.npmjs.com/package/youtube-vid)
 
 [HTML custom element](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements) for rendering a YouTube video with a heading, icon and accordion behavior via the native [`<details>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details) element.
