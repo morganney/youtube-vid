@@ -29,5 +29,12 @@ jobs:
           path: npm-debug.log
       - name: Lint
         run: npm run lint
+      - name: Test
+        run: npm run test:coverage
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v4.0.1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          slug: morganney/youtube-vid
       - name: Pack
         run: npm pack

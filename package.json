@@ -1,6 +1,6 @@
 {
   "name": "youtube-vid",
-  "version": "1.0.0-alpha.7",
+  "version": "1.0.0",
   "description": "HTML Custom Element for YouTube videos with a title, icon and an accordion-like UX.",
   "main": "dist/youtubeVid/element.js",
   "type": "module",
@@ -37,13 +37,13 @@
     "lint:css": "stylelint src/**/*.css",
     "lint:js": "eslint . src --ext .ts,.tsx --max-warnings 0",
     "lint": "npm run lint:js && npm run lint:css",
-    "watch": "tsx watch.ts",
     "dev": "vite",
     "build": "tsc && vite build",
     "build:deploy": "YTV_DEPLOY=true npm run build",
     "preview": "vite preview",
     "prepack": "npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage.enabled"
   },
   "keywords": [
     "youtube",
@@ -70,6 +70,7 @@
     "@types/node": "^20.11.20",
     "@typescript-eslint/eslint-plugin": "^7.0.2",
     "@typescript-eslint/parser": "^7.0.2",
+    "@vitest/coverage-v8": "^1.3.1",
     "browser-sync": "^3.0.2",
     "clean-css": "^5.3.3",
     "eslint": "^8.56.0",
@@ -79,7 +80,8 @@
     "stylelint-config-standard": "^36.0.0",
     "tsx": "^4.7.1",
     "typescript": "^5.3.3",
-    "vite": "^5.1.3"
+    "vite": "^5.1.3",
+    "vitest": "^1.3.1"
   },
   "prettier": {
     "arrowParens": "avoid",
